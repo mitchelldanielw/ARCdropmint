@@ -3,13 +3,13 @@
 /* Change the values in here to match your branding */
 :root {
   /* Background color of the page */
-  --background-color: #000102;
+  --background-color: #111;
 
   /* Color of the text/words */
   --text-color: #fff;
 
   /* Main color of your brand */
-  --color-primary: #b5ab7e;
+  --color-primary: #f27f13;
 
   /* Secondary color of your brand */
   --color-secondary: #418dff;
@@ -18,7 +18,7 @@
   --font: "Inter", sans-serif;
 
   /* Color of the border around items */
-  --border-color: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* --- Don't need to modify below here --- */
@@ -31,7 +31,7 @@ body {
   color: var(--text-color);
 
   display: flex;
-  margin: 0;
+  justify-content: space-evenly;
   text-align: center;
 }
 

@@ -1,4 +1,5 @@
 import {
+  MediaRenderer,
   useActiveClaimConditionForWallet,
   useAddress,
   useClaimConditions,
@@ -12,17 +13,21 @@ import {
 } from "@thirdweb-dev/react";
 import { BigNumber, utils } from "ethers";
 import type { NextPage } from "next";
+import MintedNFTs from "../components/NFTs";
 import { useMemo, useState } from "react";
+import Timer from "../components/Timer";
 import styles from "../styles/Theme.module.css";
 import { parseIneligibility } from "../utils/parseIneligibility";
 
-// Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0x44ea9eD1D488C41bD80e056df2619F4D917a2d6b";
-
 const Home: NextPage = () => {
-  const { contract: nftDrop } = useContract(myNftDropContractAddress);
+  const { contract: nftDrop } = useContract(
+    // Replace this with your NFT Drop contract address
+  process.env.NEXT_PUBLIC_NFT_DROP_ADDRESS,
+  "nft-drop"
+);
 
   const address = useAddress();
+  
   const [quantity, setQuantity] = useState(1);
 
   const { data: contractMetadata } = useContractMetadata(nftDrop);
@@ -143,8 +148,6 @@ const Home: NextPage = () => {
     numberTotal,
   ]);
 
-  console.log("claimIneligibilityReasons", claimIneligibilityReasons.data);
-
   const canClaim = useMemo(() => {
     return (
       activeClaimCondition.isSuccess &&
@@ -210,8 +213,13 @@ const Home: NextPage = () => {
   ]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.mintInfoContainer}>
+    <fieldset className={styles.fieldsetContainer}>
+      <legend>
+        <a href="https://thirdweb.com/goerli/0x44ea9eD1D488C41bD80e056df2619F4D917a2d6b?utm_source=contract_badge" target="_blank">
+          <img width="200" height="54" src="https://badges.thirdweb.com/contract?address=0x44ea9eD1D488C41bD80e056df2619F4D917a2d6b&theme=dark&chainId=5" alt="View contract" />
+        </a>
+      </legend>
+      <div className={styles.container}>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
@@ -227,20 +235,16 @@ const Home: NextPage = () => {
 
             <div className={styles.imageSide}>
               {/* Image Preview of NFTs */}
-              <image
+              <MediaRenderer
                 className={styles.image}
                 src={contractMetadata?.image}
                 alt={`${contractMetadata?.name} preview image`}
               />
-              <div>
-                {/* Powered by thirdweb */}{" "}
-                <a href="https://goerli.etherscan.io/address/0x44ea9ed1d488c41bd80e056df2619f4d917a2d6b" target="_blank" rel="noreferrer">0x44ea...2d6b</a>
-              </div>
 
               {/* Amount claimed so far */}
               <div className={styles.mintCompletionArea}>
                 <div className={styles.mintAreaLeft}>
-                  <p>Total Minted</p>
+                  <p>Total Minted&nbsp;&nbsp;&nbsp;</p>
                 </div>
                 <div className={styles.mintAreaRight}>
                   {claimedSupply && unclaimedSupply ? (
@@ -250,7 +254,6 @@ const Home: NextPage = () => {
                       {numberTotal}
                     </p>
                   ) : (
-                    // Show loading state if we're still loading the supply
                     <p>Loading...</p>
                   )}
                 </div>
@@ -266,9 +269,14 @@ const Home: NextPage = () => {
                     set)
                   </h2>
                 </div>
+              ) : !activeClaimCondition.data && claimConditions.data ? (
+                <div>
+                  <h2>Drop starts in:</h2>
+                  <Timer date={claimConditions.data[0].startTime} />
+                </div>
               ) : (
                 <>
-                  <p>Quantity</p>
+                  <p>Quantity to mint</p>
                   <div className={styles.quantityContainer}>
                     <button
                       className={`${styles.quantityControlButton}`}
@@ -318,7 +326,10 @@ const Home: NextPage = () => {
           </>
         )}
       </div>
-    </div>
+      <div>
+      <MintedNFTs />
+      </div>
+    </fieldset>
   );
 };
 

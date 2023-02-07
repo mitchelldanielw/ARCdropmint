@@ -1,18 +1,23 @@
+.fieldsetContainer {
+  display: inline-flex;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 1px solid #939393;
+}
+
 .container {
-  margin-top: 12px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100vw;
 }
 
 .previewImage {
-  height: 512px;
-  width: 512px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  padding: 3px;
+  height: 500px;
+  width: 500px;
+  border-radius: 15px;
+  border: 3px solid var(--border-color);
+  padding: 6px;
 }
 
 .mintInfoContainer {
@@ -20,37 +25,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 0 3px;
-  min-height: 45vw;
-  max-width: 42vw;
-  gap: 1%;
+  width: fit-content;
+  min-height: flex;
   border: 3px solid var(--border-color);
-  border-radius: 18px;
-  margin-bottom: 9px;
+  border-radius: 15px;
 }
 
 .infoSide {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 66%;
-  height: 15vw;
+  width: 100%;
+  height: 100%;
 }
 
 .description {
-  opacity: 0.99;
-  font-size: fit-content;
+  opacity: 0.9;
+  font-size: small;
+  width: 33%;
 }
 
 .imageSide {
-  width: 99%;
-  height: 99%;
+  width: 100%;
+  height: 100%;
 }
 
 .image {
-  image-rendering: pixelated;
-  width: 33%;
+  width: fit-content;
+  margin-top: 3px;
+  border: 3px solid var(--border-color);
   border-radius: 12px;
 }
 
@@ -59,8 +62,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  margin: 3px 0;
+  gap: 12px;
+  margin: 12px 0;
 }
 
 .mainButton {
@@ -72,14 +75,14 @@
   justify-content: center;
   white-space: nowrap;
   vertical-align: middle;
-  outline: 3px solid transparent;
-  outline-offset: 3px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   line-height: 1.2;
   font-weight: 600;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
   transition-duration: 200ms;
-  height: 1rem;
+  height: 3rem;
   min-width: 3rem;
   font-size: 1rem;
   background: #e5e5ea;
@@ -89,45 +92,44 @@
     var(--color-secondary) 101.52%
   );
   color: #fff;
-  padding: 12px;
+  padding: 24px;
   text-align: center;
   border-radius: 9999px;
   border-style: none;
-  margin-top: 9px;
 }
 
 .mainButton:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .mintCompletionArea {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .mintAreaLeft {
-  margin-left: 36%;
-  opacity: 0.78;
+  margin-left: 3%;
+  opacity: 0.75;
 }
 
 .mintAreaRight {
-  margin-right: 36%;
-  opacity: 0.78;
+  margin-right: 3%;
+  opacity: 0.75;
 }
 
 .spacerTop {
-  margin-top: 3px;
+  margin-top: 12px;
 }
 
 .spacerBottom {
-  margin-bottom: 3px;
+  margin-bottom: 16px;
 }
 
 .buttonGapTop {
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 32px;
 }
 
 .quantityContainer {
@@ -135,7 +137,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 6%;
+  gap: 3%;
 }
 
 .mintContainer {
@@ -143,34 +145,98 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 9%;
-  margin-top: 9px;
+  margin-top: 12px;
 }
 
 .textInput {
-  width: 45px;
+  width: 48px;
   background-color: transparent;
   border: 1px solid grey;
-  border-radius: 9px;
+  border-radius: 8px;
   color: #fff;
-  height: 45px;
-  padding: 0 18px;
-  font-size: 1.2rem;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 1rem;
 }
 
 .quantityControlButton {
   cursor: pointer;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  font-size: fit-content;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 33%;
+  font-size: xx-large;
   background-color: transparent;
-  border: 3px solid grey;
+  border: 2px solid grey;
   color: #fff;
 }
 
+.quantityControlButton:hover{
+  background-color: rgb(85, 85, 85);
+}
+
 .quantityControlButton:disabled {
-  opacity: 0.12;
+  opacity: 0.25;
+}
+
+.timer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: -40px;
+}
+
+.timerItem {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.timerValue {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.timerLabel {
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-top: -20px;
+}
+
+.fieldsetCollection {
+  display: flex;
+  justify-content: left;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  align-items: top;
+  flex-wrap: scroll;
+  border-radius: 6px;
+  border: 3px solid #939393;
+  font-size: small;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+.nftGrid {
+  display: flex;
+  flex-direction: row;
+  padding: 1.2%;
+  max-width: 94.23vw;
+}
+
+.nftItem {
+  cursor: pointer;
+  padding: .45rem;
+  background-color: #757575;
+  margin-inline-end: 2.4%;
+  text-align: left;
+  color:#eaeaea;
+  text-decoration: none;
+  border: 3px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 7px 15px 15px -6px #0000007d;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 /* On mobile, make the .mintInfoContainer stack vertically */

@@ -10,15 +10,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider desiredChainId={activeChainId}>
       <Head>
-        <title>ARC MINT</title>
+        <title>Alien Ranch Club</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="NFT Drop minting page"
+          content="Alien Ranch Club"
         />
         <meta
           name="keywords"
-          content="Thirdweb, thirdweb NFT drop, how to make thirdweb nft drop, how to make nft collection thirdweb"
+          content="Thirdweb, thirdweb NFT drop"
         />
       </Head>
       <Component {...pageProps} />

@@ -38,7 +38,12 @@ export default function MintedNFTs() {
                             <p>
                                 <b>{nft.metadata.name}</b>
                             </p>
-                            <ThirdwebNftMedia metadata={nft.metadata} />
+                            <div className={styles.nftImage}>
+                                <ThirdwebNftMedia 
+                                    metadata={nft.metadata} 
+                                    width='210px'
+                                />
+                            </div>
                             <p>
                                 owned by:&nbsp;{address && nft.owner === address? "you" : truncateAddress(nft.owner)}
                             </p>

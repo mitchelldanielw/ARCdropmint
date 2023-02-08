@@ -226,14 +226,25 @@
 }
 
 .nftItem {
-  cursor: pointer;
   padding: .45rem;
   background-color: #757575;
-  margin-inline-end: 2.4%;
   text-align: left;
   color:#eaeaea;
   text-decoration: none;
   border: 3px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 7px 15px 15px -6px #0000007d;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  margin-right: 2.4rem;
+}
+
+.nftImage {
+  padding: .45rem;
+  background-color: #757575;
+  text-align: left;
+  color:#eaeaea;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
   border-radius: 10px;
   box-shadow: 7px 15px 15px -6px #0000007d;
   transition: color 0.15s ease, border-color 0.15s ease;

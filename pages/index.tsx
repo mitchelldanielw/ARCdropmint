@@ -215,7 +215,8 @@ const Home: NextPage = () => {
   return (
     <fieldset className={styles.fieldsetContainer}>
       <legend>
-        <a href="https://thirdweb.com/goerli/0x44ea9eD1D488C41bD80e056df2619F4D917a2d6b?utm_source=contract_badge" target="_blank">
+        <a href="https://thirdweb.com/goerli/0x44ea9eD1D488C41bD80e056df2619F4D917a2d6b?utm_source=contract_badge" target="_blank" rel="noreferrer">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img width="200" height="54" src="https://badges.thirdweb.com/contract?address=0x44ea9eD1D488C41bD80e056df2619F4D917a2d6b&theme=dark&chainId=5" alt="View contract" />
         </a>
       </legend>
